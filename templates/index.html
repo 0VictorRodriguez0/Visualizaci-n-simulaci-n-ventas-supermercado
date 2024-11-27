@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablas de la Base de Datos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tablas de la Base de Datos</h1>
+    {% if datos_tablas %}
+        {% for nombre_tabla, datos in datos_tablas.items() %}
+            <h2>Tabla: {{ nombre_tabla }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        {% for columna in datos['columnas'] %}
+                            <th>{{ columna['Field'] }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fila in datos['filas'] %}
+                        <tr>
+                            {% for columna in datos['columnas'] %}
+                                <td>{{ fila[columna['Field']] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron datos en las tablas especificadas.</p>
+    {% endif %}
+</body>
+</html>
