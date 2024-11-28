@@ -5,15 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gráficas de Supermercado</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilos para el contenedor del dashboard */
+        .dashboard-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        /* Estilo para cada gráfica */
+        .chart-container {
+            width: 45%;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Gráficas de Datos del Supermercado</h1>
 
-    <h2>Precios de Productos</h2>
-    <canvas id="productosChart" width="900" height="400"></canvas>
+    <div class="dashboard-container">
+        <!-- Gráfica de Precios de Productos -->
+        <div class="chart-container">
+            <h2>Precios de Productos</h2>
+            <canvas id="productosChart" width="900" height="400"></canvas>
+        </div>
+
+        <!-- Gráfica de Cantidad de Ventas por Fecha -->
+        <div class="chart-container">
+            <h2>Cantidad de Ventas por Fecha</h2>
+            <canvas id="ventasChart" width="900" height="400"></canvas>
+        </div>
+
+        <!-- Gráfica de Total de Ventas por Cliente -->
+        <div class="chart-container">
+            <h2>Total de Ventas por Cliente</h2>
+            <canvas id="ventasClientesChart" width="900" height="400"></canvas>
+        </div>
+
+        <!-- Gráfica de Total de Productos por Categoría -->
+        <div class="chart-container">
+            <h2>Total de Productos por Categoría</h2>
+            <canvas id="productosCategoriaChart" width="900" height="400"></canvas>
+        </div>
+    </div>
+
     <script>
-        var ctx = document.getElementById('productosChart').getContext('2d');
-        var productosChart = new Chart(ctx, {
+        var ctx1 = document.getElementById('productosChart').getContext('2d');
+        var productosChart = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: {{ nombres_productos | tojson }},
@@ -26,7 +71,7 @@
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -34,11 +79,7 @@
                 }
             }
         });
-    </script>
 
-    <h2>Cantidad de Ventas por Fecha</h2>
-    <canvas id="ventasChart" width="900" height="400"></canvas>
-    <script>
         var ctx2 = document.getElementById('ventasChart').getContext('2d');
         var ventasChart = new Chart(ctx2, {
             type: 'line',
@@ -53,7 +94,7 @@
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -61,11 +102,7 @@
                 }
             }
         });
-    </script>
 
-    <h2>Total de Ventas por Cliente</h2>
-    <canvas id="ventasClientesChart" width="900" height="400"></canvas>
-    <script>
         var ctx3 = document.getElementById('ventasClientesChart').getContext('2d');
         var ventasClientesChart = new Chart(ctx3, {
             type: 'bar',
@@ -80,7 +117,7 @@
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -88,11 +125,7 @@
                 }
             }
         });
-    </script>
 
-    <h2>Total de Productos por Categoría</h2>
-    <canvas id="productosCategoriaChart" width="900" height="400"></canvas>
-    <script>
         var ctx4 = document.getElementById('productosCategoriaChart').getContext('2d');
         var productosCategoriaChart = new Chart(ctx4, {
             type: 'pie',
@@ -119,17 +152,10 @@
                 }]
             },
             options: {
-                responsive: false
+                responsive: true
             }
         });
     </script>
-
-    <h2>Clientes Registrados</h2>
-    <ul>
-        {% for cliente in nombres_clientes %}
-            <li>{{ cliente }}</li>
-        {% endfor %}
-    </ul>
 
 </body>
 </html>
