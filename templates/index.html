@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gráficas de Supermercado</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- BOORTSTRAP 4 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css"> -->
+    <!-- google fons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
     <style>
         /* Estilos para el contenedor del dashboard */
         .dashboard-container {
@@ -28,7 +36,7 @@
     </style>
 </head>
 <body>
-    <h1>Gráficas de Datos del Supermercado</h1>
+    <h1 class="title">Gráficas de Datos del Supermercado</h1>
 
     <div class="dashboard-container">
         <!-- Gráfica de Precios de Productos -->
