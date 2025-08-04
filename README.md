@@ -26,5 +26,5 @@ Asegúrate de tener instalado **Python 3.7 o superior** en tu sistema.
    python app.py
 
 # Dashboard
-Puedes consultar el dashboard en el siguiente enlace(Proyecto desalojado de Azure) :
+Puedes consultar el dashboard en el siguiente enlace :
 https://flask-data-b6ddceakh7g4bsd9.eastus-01.azurewebsites.net/
