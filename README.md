@@ -26,5 +26,9 @@ Asegúrate de tener instalado **Python 3.7 o superior** en tu sistema.
    python app.py
 
 # Dashboard
-Puedes consultar el dashboard en el siguiente enlace :
+Puedes consultar el dashboard en el siguiente enlace(actualmente el link no es funcional) :
 https://flask-data-b6ddceakh7g4bsd9.eastus-01.azurewebsites.net/
+
+# Visulización del dashboard
+<img width="778" height="656" alt="image" src="https://github.com/user-attachments/assets/fdee6ab2-ab06-499c-baa8-8b017aa21f7f" />
+
